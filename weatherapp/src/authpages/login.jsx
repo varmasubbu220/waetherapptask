@@ -1,17 +1,20 @@
-import React from 'react';
-import { GoogleLogin } from 'react-google-login';
+import React, { useEffect } from 'react';
+import { GoogleLogin, useGoogleOneTapLogin } from '@react-oauth/google';
 
 const Login = () => {
-  const handleGoogleLoginSuccess = (response) => {
-    // Handle successful Google login
-    console.log('Login Success:', response);
-    // You can now access user details from `response.profileObj`
-  };
 
-  const handleGoogleLoginFailure = (error) => {
-    // Handle failed Google login
-    console.error('Login Failure:', error);
-  };
+  useGoogleOneTapLogin({
+    onSuccess: credentialResponse => {
+      console.log(credentialResponse)
+      const token = credentialResponse.credential
+      localStorage.setItem('token', token);
+      window.location.href = '/home';
+    },
+    onError: () => {
+      console.log('Login Failed');
+        alert('Login Failed. Please try again.');
+    },
+  });
 
   return (
     <div className="container mt-5">
@@ -21,11 +24,14 @@ const Login = () => {
             <div className="card-body">
               <h2 className="card-title text-center mb-4">Login</h2>
               <GoogleLogin
-                clientId="229005826878-nvdctngta76isr5dqarjhe0g3lbqm0i1.apps.googleusercontent.com"
-                buttonText="Login with Google"
-                onSuccess={handleGoogleLoginSuccess}
-                onFailure={handleGoogleLoginFailure}
-                cookiePolicy={'single_host_origin'}
+                onSuccess={credentialResponse => {
+                  console.log(credentialResponse);
+                }}
+                onError={() => {
+                  console.log('Login Failed');
+                }}
+                useOneTap
+                auto_select
               />
             </div>
           </div>
