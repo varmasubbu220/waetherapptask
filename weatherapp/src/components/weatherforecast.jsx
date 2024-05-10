@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from './navbar';
+import { useSelector } from 'react-redux';
 
 const WeatherForecast = () => {
     const [forecastData, setForecastData] = useState(null);
     const [isLoading, setIsLoading] = useState(true); // State to track loading status
+    const user = useSelector(state => state.user);
 
+    if (!user.isLogin && !user.isFetching) {
+        window.location.href = '/';
+    }
     useEffect(() => {
         const fetchWeatherData = async () => {
             try {

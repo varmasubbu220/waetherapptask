@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Chart from 'chart.js/auto';
 import Navbar from './navbar';
+import { useSelector } from 'react-redux';
 
 const RecentForecast = () => {
     const [forecastData, setForecastData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const user = useSelector(state => state.user);
 
+    if (!user.isLogin && !user.isFetching) {
+        window.location.href = '/';
+    }
     useEffect(() => {
         const fetchForecastData = async () => {
             try {
