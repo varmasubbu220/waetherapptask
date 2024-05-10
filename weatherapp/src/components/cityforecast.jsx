@@ -60,6 +60,7 @@ const CityForecast = () => {
                <Navbar />
             <div style={{marginTop:"100px" ,width:"100%",display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
             <div className="col-md-9">
+                
                         <form onSubmit={(e) => {
                             e.preventDefault();
                             handleSearch();
@@ -108,10 +109,10 @@ const CityForecast = () => {
                         <div className='d-flex flex-column flex-md-row flex-sm-row flex-lg-row' style={{marginBottom:'20px',gap:'10px'}}>
                             {forecastData.list.slice(0, 5).map((item, index) => (
                                 <div key={index} className="card " style={{borderRadius:"10px", padding:'8px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
-                                  <GetWeatherIcon temp={item.main.temp}/>                                
+                                    <GetWeatherIcon temp={item.main.temp}/>                                
                                     <p>Date: {item.dt_txt}</p>
                                     <p>Temperature: {item.main.temp} °C</p>
-                                    <p>Clouds: {item.weather[0].description}</p>
+                                    <p style={{fontSize:'14px'}} className='fw-medium'>Clouds: {item.weather[0].description}</p>
                                 </div>
                             ))}
                         </div>

@@ -76,17 +76,17 @@ function Navbar() {
                     </p>
                 </div>                             </li>
                            <li className="nav-item">
-                                <a className="nav-link active mt-1 mb-1 fw-medium" aria-current="page" onClick={()=>{navigate('/home');}}>city Forecast</a>
+                                <a style={{ cursor: 'pointer' }} className="nav-link active mt-1 mb-1 fw-medium" aria-current="page" onClick={()=>{navigate('/home');}}>city Forecast</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active mt-1 mb-1 fw-medium" aria-current="page" onClick={()=>{navigate('/temperature');}}>Temperature Forecast</a>
+                                <a  style={{ cursor: 'pointer' }} className="nav-link active mt-1 mb-1 fw-medium" aria-current="page" onClick={()=>{navigate('/temperature');}}>Temperature Forecast</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active mt-1 mb-1 fw-medium" aria-current="page" onClick={()=>{navigate('/hourly');}}>Hourly Forecast</a>
+                                <a style={{ cursor: 'pointer' }} className="nav-link active mt-1 mb-1 fw-medium" aria-current="page" onClick={()=>{navigate('/hourly');}}>Hourly Forecast</a>
                             </li>
                            
                             {adminEmail==user?.user?.email&&<li className="nav-item">
-                                <a className="nav-link mt-1 mb-1 fw-medium" onClick={()=>{navigate('/users');}}>UsersManagement</a>
+                                <a style={{ cursor: 'pointer' }} className="nav-link mt-1 mb-1 fw-medium" onClick={()=>{navigate('/users');}}>UsersManagement</a>
                             </li>}
                             
                             <li className="nav-item">

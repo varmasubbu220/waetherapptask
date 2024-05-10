@@ -34,7 +34,7 @@ const UserManager = () => {
   return (
     <>
      
-      <div className="container mt-5">
+      <div className="container " style={{marginTop:"100px"}}>
       <Navbar />
         <div className="row">
           {users.map(user => (
