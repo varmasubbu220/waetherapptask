@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Login from './authpages/login';
 import WeatherForeCast from './components/weatherforecast';
+import UserManager from './components/userManagement';
+import RecentForecast from './components/recentforecast';
+import CityForecast from './components/cityforecast';
 function App() {
   
   return (
@@ -10,7 +13,10 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Login/>} />
-          <Route path="/home" element={<WeatherForeCast/>} />
+          <Route path="/hourly" element={<WeatherForeCast/>} />
+          <Route path="/users" element={<UserManager/>} />
+          <Route path="/temperature" element={<RecentForecast/>} />
+          <Route path="/home" element={<CityForecast/>} />
         </Routes>
       </div>
     </BrowserRouter>
